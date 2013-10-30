@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="kutouten_entries">
+		<item>． ， (ピリオドとカンマ)</item>
+		<item>。 、 (マルとテン)</item>
+		<item>。 ， (マルとカンマ)</item>
+	</string-array>
+	<string-array name="kutouten_values">
+		<item>en</item>
+		<item>jp</item>
+		<item>jp_en</item>
+	</string-array>
+	<string-array name="usesoftkey_entries">
+		<item>自動</item>
+		<item>常に表示</item>
+		<item>常に非表示</item>
+	</string-array>
+	<string-array name="usesoftkey_values">
+		<item>auto</item>
+		<item>on</item>
+		<item>off</item>
+	</string-array>
+</resources>

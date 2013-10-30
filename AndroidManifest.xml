@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="jp.deadend.noname.skk"
+	android:versionCode="14"
+	android:versionName="2.2b">
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-sdk android:targetSdkVersion="14" android:minSdkVersion="14"/>
+	<application android:label="@string/ime_name"
+			android:allowBackup="true" >
+		<service android:name="SKKEngine"
+			android:permission="android.permission.BIND_INPUT_METHOD" >
+			<intent-filter>
+				<action android:name="android.view.InputMethod" />
+			</intent-filter>
+			<meta-data android:name="android.view.im" android:resource="@xml/method" />
+		</service>
+
+		<activity android:name="SKKPrefs"
+			android:label="@string/label_pref_activity" >
+		</activity>
+		<activity android:name="SKKDicExtractActivity"
+			android:label="@string/label_extdic_activity"
+			android:configChanges="keyboard|keyboardHidden|orientation"
+			android:screenOrientation="nosensor"
+			android:theme="@android:style/Theme.Dialog" >
+		</activity>
+		<activity android:name="SKKDicTool"
+			android:label="@string/label_dictool_activity" >
+		</activity>
+		<activity android:name="FileChooser"
+				android:configChanges="keyboard|keyboardHidden|orientation"
+				android:screenOrientation="nosensor">
+		</activity>
+		<activity android:name="SKKMushroom"
+			android:label="@string/label_mushroom"
+			android:theme="@android:style/Theme.Dialog">
+		</activity>
+	</application>
+</manifest>

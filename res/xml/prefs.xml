@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:seekbar="http://schemas.android.com/apk/res/jp.deadend.noname.skk"
+	android:title="@string/label_pref_activity">
+	<!--  ListPreference
+		android:key="PrefKeyKutoutenType"
+		android:title="句読点のタイプ"
+		android:summary="かなモードで入力される句読点を選択"
+		android:entries="@array/kutouten_entries"
+		android:entryValues="@array/kutouten_values"
+		android:dialogTitle="Select kutouten type"
+		android:defaultValue="en" / -->
+	<!--  jp.deadend.noname.skk.SetKeyPreference
+		android:key="PrefKanaKey"
+		android:title="かなキー"
+		android:summary="かなモードに移行するキーを設定 (デフォルトはIS01の「文字」キー)"
+		android:dialogTitle="Press a key ..."
+		android:negativeButtonText="キャンセル"
+		android:positiveButtonText="OK" /  -->
+	<EditTextPreference
+		android:key="PrefCandidatesOpCount"
+		android:title="候補表示までの回数"
+		android:summary="候補一覧を表示するまでに何回変換するか（ゼロだと表示しない）"
+		android:dialogTitle="候補表示までの回数"
+		android:inputType="number"
+		android:maxLength="1" />
+	<Preference
+		android:title="@string/label_dictool_activity"
+		android:summary="ユーザー辞書の編集" >
+		<intent android:action="android.intent.action.MAIN"
+			android:targetPackage="jp.deadend.noname.skk"
+			android:targetClass="jp.deadend.noname.skk.SKKDicTool" />
+	</Preference>
+	<Preference
+		android:title="辞書ファイル解凍"
+		android:summary="辞書ファイルを用意します" >
+		<intent android:action="android.intent.action.MAIN"
+			android:targetPackage="jp.deadend.noname.skk"
+			android:targetClass="jp.deadend.noname.skk.SKKDicExtractActivity" />
+	</Preference>
+	<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+		android:title="@string/label_pref_softkeyboard">
+		<ListPreference
+			android:key="PrefKeyUseSoftKey"
+			android:title="ソフトウェアキーボードの使用"
+			android:entries="@array/usesoftkey_entries"
+			android:entryValues="@array/usesoftkey_values"
+			android:defaultValue="auto" />
+		<com.hlidskialf.android.preference.SeekBarPreference
+			android:key="PrefKeyFlickSensitivity"
+			android:title="フリック感度"
+			android:summary="少ない値のほうが敏感になります"
+			android:dialogMessage="少ない値のほうが敏感になります"
+			android:defaultValue="10"
+			android:text=" px"
+			seekbar:min="5"
+			android:max="50" />
+		<CheckBoxPreference
+			android:key="PrefKeyUsePopup"
+			android:title="ポップアップの使用"
+			android:summary="フリック入力用のガイドを表示します"
+			android:disableDependentsState="false"
+			android:defaultValue="true" />
+		<CheckBoxPreference
+			android:key="PrefKeyFixedPopup"
+			android:title="ポップアップの固定"
+			android:summary="フリック入力ガイドを，常に上部の同じ場所に表示します"
+			android:dependency="PrefKeyUsePopup"
+			android:defaultValue="false" />
+		<com.hlidskialf.android.preference.SeekBarPreference
+			android:key="PrefKeyKeyHeight"
+			android:title="キーのサイズ"
+			android:dialogMessage="キーの高さを指定してください"
+			android:defaultValue="80"
+			android:text=" px"
+			seekbar:min="50"
+			android:max="100" />
+	</PreferenceScreen>
+</PreferenceScreen>
